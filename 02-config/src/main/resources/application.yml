@@ -1,0 +1,10 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: 配置管理
+
+mqxu:
+  name: 杨逸
+  job: 学生
