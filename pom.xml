@@ -11,6 +11,7 @@
     <groupId>top.mqxu</groupId>
     <artifactId>backend-learning</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>backend-learning</name>
     <description>backend-learning</description>
     <url/>
@@ -20,6 +21,9 @@
     <developers>
         <developer/>
     </developers>
+    <modules>
+        <module>01-quickstart</module>
+    </modules>
     <scm>
         <connection/>
         <developerConnection/>
