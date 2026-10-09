@@ -1,0 +1,8 @@
+spring:
+  output:
+    ansi:
+      enabled: always
+
+logging:
+  level:
+    top.mqxu.logging: info
