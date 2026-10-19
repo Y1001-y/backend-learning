@@ -1,0 +1,19 @@
+server:
+  port: 8006
+
+spring:
+  application:
+    name: 06-redis 缓存模块
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+      database: 10
+      timeout: 3s
+      pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 2
+          max-wait: 1s
+                  # 模板ID

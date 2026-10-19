@@ -1,0 +1,12 @@
+server:
+  port:8806
+
+mqxu:
+  sms:
+    ccp:
+      serverIp: app.cloopen.com
+      port: 8883
+      accountSID: 2c94811c9f3cb45601a138041d7f622e
+      accountToken: 42676b849659441daeeb9f97792d60a4
+      appId: 2c94811c9f3cb45601a138041dea6235
+      templateId: 1
