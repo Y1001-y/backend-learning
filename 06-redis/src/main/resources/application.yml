@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: 06-redis 缓存模块
+    name: 06-redis 短信登录案例
   data:
     redis:
       host: localhost
@@ -11,9 +11,28 @@ spring:
       password:
       database: 10
       timeout: 3s
-      pool:
+      lettuce:
+        pool:
           max-active: 8
           max-idle: 8
           min-idle: 2
           max-wait: 1s
-                  # 模板ID
+
+mqxu:
+  # token 签名密钥，生产从环境变量注入
+  jwt:
+    secret: sms-login-demo-secret-key-please-replace-in-production-2026
+    expire-seconds: 7200
+  sms:
+    mock-enabled: true
+    code-expire-seconds: 300
+    send-interval-seconds: 60
+    send-daily-limit: 10
+    max-fail-count: 5
+    ccp:
+      serverIp: app.cloopen.com
+      port: 8883
+      accountSID: 2c94811c9f3cb45601a138041d7f622e
+      accountToken: 42676b849659441daeeb9f97792d60a4
+      appId: 2c94811c9f3cb45601a138041dea6235
+      templateId: 1

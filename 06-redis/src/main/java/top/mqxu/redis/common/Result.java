@@ -3,9 +3,7 @@ package top.mqxu.redis.common;
 import lombok.Data;
 
 /**
- * 统一响应体
- *
- * @author mqxu
+ * 统一响应体。HTTP 状态码恒为 200，成功与否看响应体里的 code。
  */
 @Data
 public class Result<T> {
@@ -14,25 +12,27 @@ public class Result<T> {
     private String message;
     private T data;
 
-    private Result(Integer code, String message, T data) {
+    public Result() {}
+
+    public Result(Integer code, String message, T data) {
         this.code = code;
         this.message = message;
         this.data = data;
-    }
-
-    public static <T> Result<T> ok() {
-        return ok(null);
     }
 
     public static <T> Result<T> ok(T data) {
         return new Result<>(ErrorCode.SUCCESS.getCode(), ErrorCode.SUCCESS.getMessage(), data);
     }
 
-    public static <T> Result<T> fail(ErrorCode errorCode) {
+    public static <T> Result<T> ok() {
+        return ok(null);
+    }
+
+    public static <T> Result<T> error(ErrorCode errorCode) {
         return new Result<>(errorCode.getCode(), errorCode.getMessage(), null);
     }
 
-    public static <T> Result<T> fail(Integer code, String message) {
+    public static <T> Result<T> error(Integer code, String message) {
         return new Result<>(code, message, null);
     }
 }
