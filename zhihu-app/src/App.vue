@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import ZhiHu from './components/ZhiHu.vue'
+import Home from './components/Home.vue'
 </script>
 
 <template>
-  <ZhiHu />
+  <Home />
 </template>
