@@ -36,8 +36,8 @@
         <module>12-test</module>
         <module>13-actuator</module>
         <module>14-deploy</module>
-        <module>06-redis</module>
         <module>test-redis1</module>
+        <module>zhihu-api</module>
     </modules>
 
     <properties>
