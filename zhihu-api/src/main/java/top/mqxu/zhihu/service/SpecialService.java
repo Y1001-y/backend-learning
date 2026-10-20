@@ -7,6 +7,6 @@ import java.util.List;
 public interface SpecialService {
     List<Special> getAll();
     List<Special> getByCategory(String category);
-    List<Special> getByPage(long limit, long offset);
+    List<Special> getByPage(int limit, int offset);
     long count();
 }

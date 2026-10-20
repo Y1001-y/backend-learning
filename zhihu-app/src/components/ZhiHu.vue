@@ -65,17 +65,17 @@ function formatTime(ts: number): string {
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`
 }
 
-// 获取数据（分类 + 分页）
 async function fetchData() {
   if (selectedCategory.value) {
     // 按分类查询
     const res = await axios.get(`${BASE}/category/${selectedCategory.value}`)
     specialList.value = res.data.data
+    total.value = specialList.value.length
   } else {
     // 分页查询全部
     const res = await axios.get(`${BASE}/page`, { params: { limit: limit.value, offset: offset.value } })
-    specialList.value = res.data.data
-    total.value = specialList.value.length < limit.value ? offset.value + specialList.value.length : offset.value + limit.value
+    specialList.value = res.data.data.list          // ← 改成 .list
+    total.value = res.data.data.total               // ← 直接用后端 total
   }
 }
 

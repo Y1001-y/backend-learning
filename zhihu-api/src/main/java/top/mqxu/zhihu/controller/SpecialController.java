@@ -37,13 +37,14 @@ public class SpecialController {
 
     /** 分页查询 */
     @GetMapping("/page")
-    public ResponseResult page(@RequestParam(defaultValue = "3") long limit,
-                               @RequestParam(defaultValue = "0") long offset) {
+    public ResponseResult page(@RequestParam(defaultValue = "3") int limit,
+                               @RequestParam(defaultValue = "0") int offset) {
         Map<String, Object> result = new HashMap<>();
         result.put("list", specialService.getByPage(limit, offset));
         result.put("total", specialService.count());
         return ResponseResult.builder()
-                .code(200).msg("success")
+                .code(200)
+                .msg("success")
                 .data(result)
                 .build();
     }

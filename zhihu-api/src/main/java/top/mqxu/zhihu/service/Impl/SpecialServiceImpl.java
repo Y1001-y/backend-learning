@@ -31,11 +31,9 @@ public class SpecialServiceImpl implements SpecialService {
     }
 
     @Override
-    public List<Special> getByPage(long limit, long offset) {
-        return specialMapper.selectList(
-                new LambdaQueryWrapper<Special>()
-                        .orderByDesc(Special::getUpdated)
-                        .last("LIMIT " + limit + " OFFSET " + offset));
+    public List<Special> getByPage(int limit, int offset) {
+        // 教程要求的 Mapper 方法
+        return specialMapper.selectByPage(limit, offset);
     }
 
     @Override
