@@ -72,6 +72,42 @@ CREATE TABLE t_goods
   DEFAULT CHARSET = utf8mb4 COMMENT ='商品库存表';
 
 
+-- 学生表：成绩查询案例
+DROP TABLE IF EXISTS t_student;
+
+CREATE TABLE t_student
+(
+    id          BIGINT UNSIGNED AUTO_INCREMENT COMMENT '主键',
+    name        VARCHAR(32) NOT NULL COMMENT '姓名',
+    gender      TINYINT     NOT NULL DEFAULT 0 COMMENT '性别，0 未知 / 1 男 / 2 女',
+    age         TINYINT UNSIGNED COMMENT '年龄',
+    class_name  VARCHAR(32) NOT NULL COMMENT '班级',
+    create_time DATETIME    NOT NULL COMMENT '创建时间，自动填充',
+    update_time DATETIME    NOT NULL COMMENT '更新时间，自动填充',
+    deleted     TINYINT     NOT NULL DEFAULT 0 COMMENT '逻辑删除，0 未删除 / 1 已删除',
+    PRIMARY KEY (id),
+    KEY idx_class_name (class_name)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4 COMMENT ='学生表';
+
+-- 成绩表：中间表，只存 student_id / course_id 两个 id
+DROP TABLE IF EXISTS t_score;
+
+CREATE TABLE t_score
+(
+    id          BIGINT UNSIGNED AUTO_INCREMENT COMMENT '主键',
+    student_id  BIGINT UNSIGNED NOT NULL COMMENT '学生 id，对应 t_student.id',
+    course_id   BIGINT UNSIGNED NOT NULL COMMENT '课程 id，对应 t_course.id',
+    score       DECIMAL(5, 2)   NOT NULL DEFAULT 0.00 COMMENT '分数',
+    create_time DATETIME        NOT NULL COMMENT '创建时间，自动填充',
+    update_time DATETIME        NOT NULL COMMENT '更新时间，自动填充',
+    deleted     TINYINT         NOT NULL DEFAULT 0 COMMENT '逻辑删除，0 未删除 / 1 已删除',
+    PRIMARY KEY (id),
+    KEY idx_student_id (student_id),
+    KEY idx_course_id (course_id)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4 COMMENT ='成绩表';
+
 -- 订单表：挑战练习用（演示"创建订单"）
 DROP TABLE IF EXISTS t_order;
 
