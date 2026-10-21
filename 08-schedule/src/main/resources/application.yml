@@ -1,0 +1,30 @@
+server:
+  port: 8008
+
+spring:
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: 1744272885@qq.com
+    # QQ邮箱授权码（不是登录密码），建议改成环境变量：${MAIL_PASSWORD}
+    password: symjsmokjscqdjfh
+    protocol: smtps
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.ssl.enable: true
+      mail.smtp.ssl.trust: smtp.qq.com
+      mail.smtp.connectiontimeout: 10000
+      mail.smtp.timeout: 10000
+      mail.smtp.writetimeout: 10000
+
+weather:
+  api:
+    # 和风天气 API Key（建议改成环境变量：${WEATHER_KEY}）
+    key: 36f8bf0a7b354090a1e586a95db70da3
+  # 苏州 101190401；南京 101190101
+  city: 101190401
+  url: https://mp5n8q3dpk.re.qweatherapi.com/v7/weather/3d
+
+# 与 @Value("${mail.to}") 对应：多个收件人写在同一行，用英文逗号分隔
+mail:
+  to: 1744272885@qq.com
