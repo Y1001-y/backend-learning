@@ -38,6 +38,7 @@
         <module>14-deploy</module>
         <module>test-redis1</module>
         <module>zhihu-api</module>
+        <module>15-toolkit</module>
     </modules>
 
     <properties>
